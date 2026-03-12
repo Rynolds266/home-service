@@ -1,7 +1,12 @@
+import { useState } from "react"
+
 
 function NavBar(){
+  const [isOpen , setIsOpen ] = useState(false)
     return (
-        <nav className="fixed top-0 left-0  right-0 z-50 shadow-md px-8 py-4 flex justify-between items-center"
+  <>
+   
+         <nav className="fixed top-0 left-0  right-0 z-50 shadow-md px-8 py-4 flex justify-between items-center"
          style={{backgroundColor:'#0A0F1E' , borderBottom: '1px solid rgb(201,168,76,0.2)' }}
         >
         
@@ -20,7 +25,7 @@ function NavBar(){
             </div>
             
             {/* navigations links */}
-             <ul className="flex gap-4">
+             <ul className="hidden lg:flex gap-4">
                 {['Home','Services','Deals','Contact','About'].map((items)=>(
                     <li key={items} style={{color:'#9CA3AF', letterSpacing:'1px' , fontSize:'0.85rem', cursor:'pointer', textTransform:'uppercase',transition:'color '}}
                       onMouseEnter={e=>e.target.style.color='#C9A84C'}
@@ -33,9 +38,17 @@ function NavBar(){
 
              </ul>
 
-             {/* button */}
 
-             <button style={{
+             {/* hamburger button */}
+
+
+             <button className="lg:hidden " onClick={()=>setIsOpen(!isOpen)} style={{color:'#E8C55A', fontSize:'1.5rem'}}>☰</button>
+
+
+            
+             {/* button book now */}
+
+             <button className="hidden lg:block" style={{
                 backgroundColor:'transparent',
                 border:'1px solid #C9A84C',
                 color:'#C9A84C',
@@ -57,6 +70,22 @@ function NavBar(){
 
 
         </nav>
+
+     {isOpen && ( <div className="lg:hidden px-4 py-4 " style={{backgroundColor:'#0A0F1E'}}>
+
+        {['Home','Services','Deals','Contact','About'].map((item)=>(
+            <div key={item} className="py-2 text-sm uppercase tracking-widest  text-gray-400" style={{borderBottom:'1px solid rgba(201,168,76,0.1)'}}>{item}</div>
+        ))}
+
+
+
+      </div>
+       )}
+  
+  
+  </>
+    
+
     )
 }
 

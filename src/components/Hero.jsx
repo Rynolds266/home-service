@@ -14,7 +14,7 @@ function Hero(){
                 📍 Louisville, Kentucky
                 
             </div>
-            <h1 className="text-white text-center font-bold text-5xl" >
+            <h1 className="text-white text-center font-bold text-3xl lg:text-5xl" >
                <span style={{color:'#E8C55A'}}>Premium </span> Home Services, Done Right.
             </h1>
 

@@ -18,7 +18,7 @@ function Footer(){
 
 
           {/* 3 colomn grid */}
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div>
 
                 <h3 className="font-bold text-white text-xl">Anthony-Teague<span style={{color:'#E8C55A'}}>.Inc</span></h3>
@@ -62,7 +62,7 @@ function Footer(){
                   <p className="text-gray-400 text-sm">© 2025 Teague Inc. All rights reserved.</p>
              </div>
       </div>
-
+     
       
   )
 }

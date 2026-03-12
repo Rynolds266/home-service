@@ -7,10 +7,13 @@ function App(){
   return (
     <div style={{backgroundColor:'#0A0F1E',minHeight:'100vh'}}>
       <NavBar/>
+      <main className="pt-20">
       <Hero/>
       <Services/>
       <DealoftheWeek/>
       <Footer/>
+      </main>
+      
     </div>
   )
 }

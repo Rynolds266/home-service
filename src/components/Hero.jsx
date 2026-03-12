@@ -9,7 +9,7 @@ function Hero(){
     return (
 
         
-        <div className="flex items-center justify-center min-h-screen flex-col pt-20" style={{backgroundColor:'#0A0F1E'}}>
+        <div className="flex items-center justify-center min-h-fit md:min-h-screen flex-col pt-20" style={{backgroundColor:'#0A0F1E'}}>
             <div className="border border-yellow-400 px-4 py-2 text-sm  mb-6  tracking-widest" style={{color:'#E8C55A'}}>
                 📍 Louisville, Kentucky
                 

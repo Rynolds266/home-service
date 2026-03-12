@@ -71,7 +71,7 @@ function NavBar(){
 
         </nav>
 
-     {isOpen && ( <div className="lg:hidden px-4 py-4 " style={{backgroundColor:'#0A0F1E'}}>
+     {isOpen && ( <div className="lg:hidden px-4 py-4 mt-16" style={{backgroundColor:'#0A0F1E'}}>
 
         {['Home','Services','Deals','Contact','About'].map((item)=>(
             <div key={item} className="py-2 text-sm uppercase tracking-widest  text-gray-400" style={{borderBottom:'1px solid rgba(201,168,76,0.1)'}}>{item}</div>

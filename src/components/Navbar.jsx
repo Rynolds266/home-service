@@ -1,4 +1,14 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
+
+const dataLinks=[{name:'home',path:'/'},
+  {name:'booking',path:'/booking'} ,
+  {name:'contact',path:'/contact'},
+  {name:'service',path:'/service'},
+  {name:'about',path:'/about'},
+  {name:'view',path:'/revoir'},
+  {name:'decy',path:'/rynolds'},
+]
 
 
 function NavBar(){
@@ -26,14 +36,12 @@ function NavBar(){
             
             {/* navigations links */}
              <ul className="hidden lg:flex gap-4">
-                {['Home','Services','Deals','Contact','About'].map((items)=>(
-                    <li key={items} style={{color:'#9CA3AF', letterSpacing:'1px' , fontSize:'0.85rem', cursor:'pointer', textTransform:'uppercase',transition:'color '}}
+                {dataLinks.map((items)=>(
+                    <Link key={items.name} to={items.path}  style={{color:'#9CA3AF', letterSpacing:'1px' , fontSize:'0.85rem', cursor:'pointer', textTransform:'uppercase',transition:'color '}}
                       onMouseEnter={e=>e.target.style.color='#C9A84C'}
                       onMouseLeave={e=>e.target.style.color='#9CA3AF'}
-                    >
-                     {items}   
-
-                    </li>
+                    >{items.name}</Link>
+                    
                 ))}
 
              </ul>

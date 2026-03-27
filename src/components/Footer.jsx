@@ -1,6 +1,8 @@
 import { Phone , Mail , MapPin , Twitter, Facebook, Instagram } from "lucide-react"
 
+import { Link } from "react-router-dom"
 
+import { dataLinks } from "../data/dataLink"
 
 const ContactData = [{icon:Phone,value:'5025365571'},
                      {icon:Mail, value:'info@teagueinc.com'},
@@ -30,8 +32,8 @@ function Footer(){
             <div>
                 <h4 className="text-white font-bold text-lg">Quick Links</h4>
                 <ul>
-                    {quickLinks.map((items)=>(
-                        <li key={items} className="text-gray-400 mt-2">{items}</li>
+                    {dataLinks.map((items)=>(
+                        <Link key={items.name} to={items.path} className="text-gray-400 mt-2 block" >{items.name}</Link>
                     ))}
 
 

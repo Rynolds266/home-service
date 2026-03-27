@@ -1,15 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-
-const dataLinks=[{name:'home',path:'/'},
-  {name:'booking',path:'/booking'} ,
-  {name:'contact',path:'/contact'},
-  {name:'service',path:'/service'},
-  {name:'about',path:'/about'},
-  {name:'view',path:'/revoir'},
-  {name:'decy',path:'/rynolds'},
-]
-
+import { dataLinks } from "../data/dataLink"
 
 function NavBar(){
   const [isOpen , setIsOpen ] = useState(false)
@@ -56,7 +47,7 @@ function NavBar(){
             
              {/* button book now */}
 
-             <button className="hidden lg:block" style={{
+             <button className="hidden lg:block rounded-lg" style={{
                 backgroundColor:'transparent',
                 border:'1px solid #C9A84C',
                 color:'#C9A84C',
@@ -81,8 +72,9 @@ function NavBar(){
 
      {isOpen && ( <div className="lg:hidden px-4 py-4 mt-16" style={{backgroundColor:'#0A0F1E'}}>
 
-        {['Home','Services','Deals','Contact','About'].map((item)=>(
-            <div key={item} className="py-2 text-sm uppercase tracking-widest  text-gray-400" style={{borderBottom:'1px solid rgba(201,168,76,0.1)'}}>{item}</div>
+        {dataLinks.map((item)=>(
+            <Link key={item.name} to={item.path} onClick={()=>setIsOpen(false)} className="py-2 text-sm uppercase tracking-widest  text-gray-400 block"
+             style={{borderBottom:'1px solid rgba(201,168,76,0.1)'}}>{item.name}</Link>
         ))}
 
 

@@ -1,5 +1,6 @@
 
-import { useState } from "react"
+import { useEffect, useState  } from "react"
+import { useSearchParams } from "react-router-dom"
 
 
 const services = ['House Cleaning', 'Car Services', 'Landscaping', 'Moving Out', 'Moving In', 'Junk Removal']
@@ -15,7 +16,19 @@ function Booking(){
     })
  function HandleData(e){
     setFormData({... formData , [e.target.name]: e.target.value})
+
  }
+
+ const [searchParams] = useSearchParams()
+
+ const serviceFromURL = searchParams.get('service')
+
+ useEffect(()=>{
+      if(serviceFromURL){
+         setFormData ({... formData , service:serviceFromURL})
+      }
+ }, [serviceFromURL])
+
     return (
         <div className="min-h-screen flex flex-col items-center pt-32 pb-16" style={{backgroundColor:'#0A0F1E'}}>
            <div className="rounded-2xl  p-6 w-full max-w-lg"
@@ -29,7 +42,7 @@ function Booking(){
                 Service
              </label>
              <select name="service" onChange={HandleData} className="w-full rounded-lg   " style={{border:'1px solid rgba(232,197,90,0.3)' , color:'white',backgroundColor:'#0A0F1E',}}>
-                    <option value="">Select a service</option>
+                    <option value="" className="text-sm font-bold  tracking-widest uppercase">SELECT A SERVICE</option>
                  {services.map((items)=>(
                     <option style={{color:'#0A0F1E', backgroundColor:'white'}} key={items} value={items} >{items}</option>
                  ))}

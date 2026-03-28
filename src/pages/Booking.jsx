@@ -1,6 +1,7 @@
 
 import { useEffect, useState  } from "react"
 import { useSearchParams } from "react-router-dom"
+import { ServicesData } from "../data/services"
 
 
 const services = ['House Cleaning', 'Car Services', 'Landscaping', 'Moving Out', 'Moving In', 'Junk Removal']
@@ -41,10 +42,10 @@ function Booking(){
              <label className="text-sm tracking-widest uppercase block mb-2" style={{color:'#E8C55A'}}>
                 Service
              </label>
-             <select name="service" onChange={HandleData} className="w-full rounded-lg   " style={{border:'1px solid rgba(232,197,90,0.3)' , color:'white',backgroundColor:'#0A0F1E',}}>
+             <select name="service" onChange={HandleData} value={formData.service} className="w-full rounded-lg   " style={{border:'1px solid rgba(232,197,90,0.3)' , color:'white',backgroundColor:'#0A0F1E',}}>
                     <option value="" className="text-sm font-bold  tracking-widest uppercase">SELECT A SERVICE</option>
-                 {services.map((items)=>(
-                    <option style={{color:'#0A0F1E', backgroundColor:'white'}} key={items} value={items} >{items}</option>
+                 {ServicesData.map((items)=>(
+                    <option     style={{color:'#0A0F1E', backgroundColor:'white'}} key={items.name} value={items.name} >{items.name}</option>
                  ))}
              </select >
 
@@ -86,7 +87,7 @@ function Booking(){
 
             <div className="flex justify-center mt-6">
 
-             <button className="tracking-widest  py-3 px-8 font-bold uppercase rounded-lg" style={{color:'#0A0F1E' , backgroundColor:'#E8C55A'}}>Book now</button>
+             <button className="tracking-widest  py-3 px-8 font-bold uppercase rounded-lg hover:cursor-pointer" style={{color:'#0A0F1E' , backgroundColor:'#E8C55A'}}>Book now</button>
             </div>
            
            </div>

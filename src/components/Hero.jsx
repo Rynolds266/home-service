@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 
 const StatsData = [
     {number:'500+', label:'Jobs Completed'},
@@ -33,9 +35,9 @@ function Hero(){
                 ))}
             </div>
 
-            {<button className="mt-10 py-3 px-8 font-bold rounded-lg uppercase tracking-widest hover:cursor-pointer " style={{color:'#0A0F1E', backgroundColor:'#E8C55A'}}>
+            { <Link  to={`/booking`} className=" inline-block mt-10 py-3 px-8 font-bold rounded-lg uppercase tracking-widest hover:cursor-pointer " style={{color:'#0A0F1E', backgroundColor:'#E8C55A'}}>
                 Book Service
-            </button>
+            </Link>
             
             }
 

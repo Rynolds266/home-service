@@ -47,7 +47,7 @@ function NavBar(){
             
              {/* button book now */}
 
-             <button className="hidden lg:block rounded-lg" style={{
+             <Link  to={`/booking`} className="hidden lg:block rounded-lg" style={{
                 backgroundColor:'transparent',
                 border:'1px solid #C9A84C',
                 color:'#C9A84C',
@@ -65,7 +65,7 @@ function NavBar(){
 
                 book now
 
-             </button>
+             </Link>
 
 
         </nav>

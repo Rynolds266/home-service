@@ -1,6 +1,7 @@
 import { Phone , Mail , MapPin } from "lucide-react"
 import { ContactData } from "../data/Contact"
 import { useState } from "react"
+import { supabase } from "../lib/supabase"
 
 function Contact(){
   const [formData , setFormData] = useState ({
@@ -13,6 +14,20 @@ function Contact(){
    function HandForm (e){
        setFormData({... formData , [e.target.name]: e.target.value})
   }
+
+
+ const HandlContact = async () =>{
+    const {error} = await supabase.from('messages').insert([formData])
+
+    if (error){
+        console.log(" error" , error.message)
+    }
+    else{
+        console.log("contacted success full")
+
+        setFormData({name:'', email:'', messageText:''})
+    }
+ }
 
     return  (
         <div className="pt-32 pb-20 px-8 max-w-2xl mx-auto">
@@ -42,7 +57,7 @@ function Contact(){
                         <div className="mb-3">
                         <label className="block tracking-widest uppercase text-sm mb-2  " style={{color:'#e4be4e'}}> name </label>
                        
-                        <input name='name' onChange={HandForm} className="w-full rounded-lg text-white p-3 "
+                        <input name='name' onChange={HandForm} value={formData.name} className="w-full rounded-lg text-white p-3 "
                         style={{backgroundColor:'#0A0F1E' , border:'1px solid  '}}/>
                       
                         </div>
@@ -51,7 +66,7 @@ function Contact(){
                      <div className="mb-4">
                          <label className="block uppercase tracking-widest text-sm mb-2" style={{color:'#E8C55A'}}> email </label>
                        
-                        <input name='email' onChange={HandForm} className="w-full rounded-lg text-white p-3" style={{border:'1px solid rgba(232,197,90,0.2)'}}/>
+                        <input name='email' onChange={HandForm} value={formData.email} className="w-full rounded-lg text-white p-3" style={{border:'1px solid rgba(232,197,90,0.2)'}}/>
                         
                     
                      </div>
@@ -59,14 +74,14 @@ function Contact(){
                      <div className="mb-4">
                          <label className="block uppercase tracking-widest text-sm mb-2" style={{color:'#E8C55A'}}>leave a   Message</label>
                      
-                      <textarea rows={4} name='messageText' onChange={HandForm} 
+                      <textarea rows={4} name='messageText' onChange={HandForm} value={formData.messageText}
                       className="rounded-lg w-full text-white" style={{border:'1px solid rgba(232,197,90,0.2)'}} ></textarea>
             
                   
                      </div>
                     
                     <div className="flex justify-center mx-auto">
-                         <button className=" py-3 px-8 text-center w-full rounded-lg mt-10" style={{backgroundColor:'#E8C55A'}}>submit</button>
+                         <button  onClick={HandlContact} className=" py-3 px-8 text-center w-full rounded-lg mt-10 hover:cursor-pointer" style={{backgroundColor:'#E8C55A'}}>submit</button>
                     </div>
                     
 

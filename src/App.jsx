@@ -12,6 +12,7 @@ import  Contact  from './pages/Contact'
 import { Routes , Route } from 'react-router-dom'
 import Services from './pages/Services'
 import About from './pages/About'
+import Confirmation from './pages/confirmation'
 
 
 
@@ -29,6 +30,7 @@ function App(){
          <Route path='/booking' element={<Booking/>}/>
          <Route path='/about' element={<About/>}/>
          <Route path='/service' element={<Services/>}></Route>
+         <Route path='/confirmation' element={<Confirmation/>}></Route>
        </Routes>
       <Footer/>
     </main>

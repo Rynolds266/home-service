@@ -1,14 +1,9 @@
 import { Phone , Mail , MapPin , Twitter, Facebook, Instagram } from "lucide-react"
 
 import { Link } from "react-router-dom"
-
+import { ContactData } from "../data/Contact"
 import { dataLinks } from "../data/dataLink"
 
-const ContactData = [{icon:Phone,value:'5025365571'},
-                     {icon:Mail, value:'info@teagueinc.com'},
-                     {icon:MapPin , value:'Louisville, Kentucky'}
-     
-                  ]
 
 const quickLinks = ['Home', 'Services', 'Deals', 'Contact']
 

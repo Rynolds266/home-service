@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { dataLinks } from "../data/dataLink"
+import { Scale } from "lucide-react"
 
 function NavBar(){
   const [isOpen , setIsOpen ] = useState(false)
@@ -47,7 +48,7 @@ function NavBar(){
             
              {/* button book now */}
 
-             <Link  to={`/booking`} className="hidden lg:block rounded-lg" style={{
+             <Link  to={`/booking`} className="hidden lg:block rounded-lg active:scale-95 transition-transform" style={{
                 backgroundColor:'transparent',
                 border:'1px solid #C9A84C',
                 color:'#C9A84C',
@@ -57,6 +58,7 @@ function NavBar(){
                 cursor:'pointer',
                 textTransform:'uppercase',
                 transition:'all 0.3s'
+               
              }} 
              onMouseEnter={e=>{e.target.style.color}}
              

@@ -115,7 +115,7 @@ function Booking(){
 
             <div className="flex justify-center mt-6">
 
-             <button  onClick={HandleBooking} className="tracking-widest  py-3 px-8 font-bold uppercase rounded-lg hover:cursor-pointer" style={{color:'#0A0F1E' , backgroundColor:'#E8C55A'}}>Book now</button>
+             <button  onClick={HandleBooking} className="active:scale-95 transition-transform tracking-widest  py-3 px-8 font-bold uppercase rounded-lg hover:cursor-pointer" style={{color:'#0A0F1E' , backgroundColor:'#E8C55A'}}>Book now</button>
             </div>
            
            </div>

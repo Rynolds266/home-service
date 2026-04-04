@@ -58,7 +58,7 @@ function Contact(){
                         <label className="block tracking-widest uppercase text-sm mb-2  " style={{color:'#e4be4e'}}> name </label>
                        
                         <input name='name' onChange={HandForm} value={formData.name} className="w-full rounded-lg text-white p-3 "
-                        style={{backgroundColor:'#0A0F1E' , border:'1px solid  '}}/>
+                        style={{border:'1px solid rgba(232,197,90,0.2) '}}/>
                       
                         </div>
 
@@ -91,7 +91,6 @@ function Contact(){
                     
                      
                    
-
 
             </div>
 

@@ -48,7 +48,7 @@ export default function About(){
                 <h2 className="text-white text-center">Ready to get started?</h2>
                 <p className="text-gray-400 text-center">Book a service today and see why Louisville trusts us.</p>
 
-                <Link to={`/booking`} className="inline-block mx-auto uppercase tracking-widest font-bold py-3 px-8 rounded-lg  mt-4" style={{backgroundColor:'#e8c55a'}}>book now</Link>
+                <Link to={`/booking`} className="active:scale-95 transition-transform inline-block mx-auto uppercase tracking-widest font-bold py-3 px-8 rounded-lg  mt-4" style={{backgroundColor:'#e8c55a'}}>book now</Link>
             </div>
 
     </div>

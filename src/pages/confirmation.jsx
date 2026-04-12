@@ -10,7 +10,7 @@ export default function Confirmation(){
             <div className="max-w-lg w-full p-8 rounded-2xl text-center" style={{border:'1px solid rgba(232,197,90,0.3)'  , backgroundColor:'#111827',}}>
                     <div>
                         
-                        <span style={{}}>✓</span>
+                        <span style={{color:'#E8C55A', fontSize:'32px'}}>✓</span>
                     </div>
                 <div mt-4 >
                       

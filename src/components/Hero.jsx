@@ -35,7 +35,7 @@ function Hero(){
                 ))}
             </div>
 
-            { <Link  to={`/booking`} className=" inline-block mt-10 py-3 px-8 font-bold rounded-lg uppercase tracking-widest hover:cursor-pointer " style={{color:'#0A0F1E', backgroundColor:'#E8C55A'}}>
+            { <Link  to={`/booking`} className=" active:scale-95 transition-transform inline-block mt-10 py-3 px-8 font-bold rounded-lg uppercase tracking-widest hover:cursor-pointer " style={{color:'#0A0F1E', backgroundColor:'#E8C55A'}}>
                 Book Service
             </Link>
             

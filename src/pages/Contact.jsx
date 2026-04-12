@@ -57,7 +57,7 @@ function Contact(){
                         <div className="mb-3">
                         <label className="block tracking-widest uppercase text-sm mb-2  " style={{color:'#e4be4e'}}> name </label>
                        
-                        <input name='name' onChange={HandForm} value={formData.name} className="w-full rounded-lg text-white p-3 "
+                        <input placeholder="name" name='name' onChange={HandForm} value={formData.name} className="w-full rounded-lg text-white p-3 "
                         style={{border:'1px solid rgba(232,197,90,0.2) '}}/>
                       
                         </div>
@@ -66,7 +66,7 @@ function Contact(){
                      <div className="mb-4">
                          <label className="block uppercase tracking-widest text-sm mb-2" style={{color:'#E8C55A'}}> email </label>
                        
-                        <input name='email' onChange={HandForm} value={formData.email} className="w-full rounded-lg text-white p-3" style={{border:'1px solid rgba(232,197,90,0.2)'}}/>
+                        <input placeholder="Email" name='email' onChange={HandForm} value={formData.email} className="w-full rounded-lg text-white p-3" style={{border:'1px solid rgba(232,197,90,0.2)'}}/>
                         
                     
                      </div>
@@ -74,14 +74,14 @@ function Contact(){
                      <div className="mb-4">
                          <label className="block uppercase tracking-widest text-sm mb-2" style={{color:'#E8C55A'}}>leave a   Message</label>
                      
-                      <textarea rows={4} name='messageText' onChange={HandForm} value={formData.messageText}
-                      className="rounded-lg w-full text-white" style={{border:'1px solid rgba(232,197,90,0.2)'}} ></textarea>
+                      <textarea placeholder="message" rows={4} name='messageText' onChange={HandForm} value={formData.messageText}
+                      className="rounded-lg w-full text-white resize-none" style={{border:'1px solid rgba(232,197,90,0.2)'}} ></textarea>
             
                   
                      </div>
                     
                     <div className="flex justify-center mx-auto">
-                         <button  onClick={HandlContact} className=" py-3 px-8 text-center w-full rounded-lg mt-10 hover:cursor-pointer" style={{backgroundColor:'#E8C55A'}}>submit</button>
+                         <button  onClick={HandlContact} className=" active:scale-95 transition-transform py-3 px-8 text-center w-full rounded-lg mt-10 hover:cursor-pointer" style={{backgroundColor:'#E8C55A'}}>submit</button>
                     </div>
                     
 

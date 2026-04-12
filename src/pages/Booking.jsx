@@ -61,7 +61,7 @@ function Booking(){
       <div></div>
        <div className="min-h-screen flex flex-col items-center pt-32 pb-16" style={{backgroundColor:'#0A0F1E'}}>
            <div className="rounded-2xl  p-6 w-full max-w-lg"
-           style={{backgroundColor:'#111827', border:'1px solid #E8C55A '}}>
+           style={{backgroundColor:'#111827', border:'1px solid rgba(232,197,90,0.2)'}}>
                  <h2 className="text-yellow-400 text-center mb-2 tracking-widest uppercase">Book a service</h2>
             <h3 className="text-center text-gray-400 mb-4">Louisville's trusted home service experts</h3>
             

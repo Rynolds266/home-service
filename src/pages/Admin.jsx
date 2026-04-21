@@ -4,6 +4,8 @@ import { supabase } from "../lib/supabase"
 import { Link } from "react-router-dom"
 
 
+const colors = ['#E8C55A', '#3B82F6', '#10B981', '#F59E0B', '#EF4444']
+
 
 
 const dataSideLink = [{icon:'', LinkName:'Booking'},
@@ -34,6 +36,17 @@ useEffect(()=>{
 } , [])
 
 
+async function updateStatus(id , status){
+
+    const {error} = await supabase.from('Bookings').update({status:status}).eq('id',id)
+
+    if(error){
+        console.log(error.message)
+    }else{
+        setBookings(Bookings.map(b =>b.id===id? {...b, status:status}:b))
+    }
+
+}
 
 const [messages , setMessages] = useState([])
 
@@ -54,11 +67,18 @@ useEffect(()=>{
 
 const [activeTab , setActiveTab] = useState('bookings')
 
+
+const statusConfig = {
+    pending:{bg:'#FEF3C7' , dot:'#F59E0B' , label:'pending'},
+    confirmed:{bg:'#D1FAE5' , dot:'#10B981', label:'confirmed'},
+    cancelled: {bg:'#FEE2E2', dot:'#EF4444', label:'cancelled'}
+}
+
     return (
         <div className="flex min-h-screen  ">
 
         {/* side bar */}
-          <div className="w-64 p-6"  style={{background:'#1E1B4B'}}>
+          <div className="w-64 p-6"  style={{background:'#064E3B'}}>
               <div className="flex items-center gap-2 mb-8">
                 <span style={{color:"" , fontSize:""}}></span>
                 
@@ -80,7 +100,7 @@ const [activeTab , setActiveTab] = useState('bookings')
 
           
           {/* main content */}
-          <div className="flex-1" style={{backgroundColor:'#F1F5F9'}}>
+          <div className="flex-1"  style={{backgroundColor:'#F1F5F9'}}>
             
 
              <div className="grid grid-cols-3 gap-4 p-6">
@@ -105,38 +125,76 @@ const [activeTab , setActiveTab] = useState('bookings')
              </div>
                <h1  className="flex justify-center p-6" style={{}}>bookings</h1>
 
+                {/* Table start here */}
 
-                <div className="p-6 rounded-lg">
-                     <table className="w-full border-collapse">
+                <div className="ml-6 mr-6 rounded-2xl shadow-sm overflow-hidden bg-white">
+                <table className="w-full border-collapse">
                  <thead  className="bg-gray-50">
-                     <tr>
+                     <tr className="rounded-2xl">
                         <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">customer</th>
                         <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">service</th>
                         <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Address</th>
                         <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Status</th>
-                        <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Validate</th>
-                         <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Cancel</th>
+                        <th className="px-12 py-4 text-left text-sm font-semibold text-gray-700">Actions</th>
+                       
                      </tr>
                  </thead>
                   <tbody>
-                     {Bookings.map((items)=>(
-                        <tr  key={items.id}> 
+                     {Bookings.map((items)=>{ 
+                        const avatarColr= colors[Math.floor(Math.random() * colors.length)]
+                        const status = statusConfig[items.status] || statusConfig['pending']
+                        return (
+                         <tr  key={items.id}> 
                           <td className="px-6 py-4">
+
+                        <div className="flex items-center gap-4">
+                             <div>{items.photo?<img className="h-12 w-12  rounded-full object-cover" src={items.photo}></img>:
+                             <div className="flex justify-center items-center  text-white h-12  w-12 rounded-full object-cover" style={{backgroundColor:avatarColr}}> 
+                                {items.name.split(' ').map(w => w.charAt(0)).join('')}</div>} </div>
+
+                               {/* info */} 
                              <div className="flex flex-col">
+                              
                                 <span className="font-semibold text-gray-900">{items.name}</span>
                                 <span className="text-sm text-gray-500">{items.telephone}</span>
                                 <span className="text-sm text-gray-500">{items.email}</span>
                              </div>
 
+
+                        </div>
+
+                            
                             
                           </td>
 
                           <td className="p-3 text-left border-b border-gray-200">{items.service}</td>
                      
                          <td className="p-3 text-left border-b border-gray-200">{items.address}</td>
-                        <td className="p-3 text-left border-b border-gray-200">{items.status}</td>
+                        <td className="p-3 text-left border-b border-gray-200">
+                            <span  style={{backgroundColor:status.bg , color:status.dot}} className="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full ">
+                                <span style={{backgroundColor:status.dot}} className="h-2 w-2 rounded-full "></span>
+                                    {status.label}
+                            </span>
+
+
+                        </td>
+                        <td className="flex justify-center items-center gap-2">
+                            <div className="flex gap-2">
+                                <button onClick={()=>updateStatus(items.id ,'confirmed')} className="bg-transparent px-3 py-1 border
+                                border-gray-400 rounded-lg mt-2 hover:cursor-pointer active:scale-95 " 
+                                style={{backgroundColor:''}}>confirm</button>
+
+                                <button  className="px-3 py-1 rounded-lg mt-4"
+                                style={{backgroundColor:'red'}}>Cancel</button>
+                             </div>
+                        </td>
+                          
                     </tr>
-                        ))}
+
+                     )})}
+                        
+                       
+                        
                     
                    
                   </tbody>

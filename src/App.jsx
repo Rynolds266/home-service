@@ -16,6 +16,7 @@ import Confirmation from './pages/confirmation'
 import Admin from './pages/Admin'
 
 import { useLocation } from 'react-router-dom'
+import BookingFlow from './pages/BookingFlow'
 
 
 
@@ -36,7 +37,7 @@ function App(){
        <Routes>
          <Route path='/' element={<Home/>}/>
          <Route path='/contact' element={<Contact/>}/>
-         <Route path='/booking' element={<Booking/>}/>
+         <Route path='/booking' element={<BookingFlow/>}/>
          <Route path='/about' element={<About/>}/>
          <Route path='/service' element={<Services/>}></Route>
          <Route path='/confirmation' element={<Confirmation/>}></Route>

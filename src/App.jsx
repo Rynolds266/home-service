@@ -8,6 +8,8 @@ import Booking from './pages/Booking'
 
 import  Contact  from './pages/Contact'
 
+import LandingPage from './pages/LandingPage'
+
 
 import { Routes , Route } from 'react-router-dom'
 import Services from './pages/Services'
@@ -35,7 +37,7 @@ function App(){
     
     <main className={!isAdmin?"pt-20": ""}>
        <Routes>
-         <Route path='/' element={<Home/>}/>
+         <Route path='/' element={<LandingPage/>}/>
          <Route path='/contact' element={<Contact/>}/>
          <Route path='/booking' element={<BookingFlow/>}/>
          <Route path='/about' element={<About/>}/>

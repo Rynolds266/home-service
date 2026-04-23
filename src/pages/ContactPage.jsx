@@ -37,7 +37,7 @@ const Nav = ({ navigate }) => (
       ))}
     </div>
     <div style={{ display:"flex", gap:12, alignItems:"center" }}>
-      <span style={{ fontSize:14, color:"#fff", fontWeight:600 }}>(502) 555-0199</span>
+      <span style={{ fontSize:14, color:"#fff", fontWeight:600 }}>(502) 536-5571</span>
       <button onClick={()=>navigate("/book")} style={{ background:C.primary, color:"#fff", border:"none", fontFamily:"inherit", fontWeight:700, cursor:"pointer", borderRadius:6, fontSize:14, padding:"10px 20px" }}>Book now</button>
     </div>
   </nav>
@@ -48,7 +48,7 @@ const Footer = ({ navigate }) => (
     <div style={{ maxWidth:1160, margin:"0 auto" }}>
       <div style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr 1fr", gap:48, marginBottom:36 }}>
         <div><div style={{ marginBottom:14 }}><Logo/></div><p style={{ fontSize:13, color:C.footerTxt, lineHeight:1.8, maxWidth:220 }}>Locally owned home services — cleaning, landscaping, moving, assembly & junk removal.</p></div>
-        {[["SERVICES",["Cleaning","Lawn & Landscaping","Moving Help","Furniture Assembly","Junk Removal"]],["COMPANY",["About us","How it works","Reviews","Careers"]],["CONTACT",["(502) 555-0199","hello@teagueinc.com","Louisville, KY","Mon–Sat 7am–7pm"]]].map(([h,items])=>(
+        {[["SERVICES",["Cleaning","Lawn & Landscaping","Moving Help","Furniture Assembly","Junk Removal"]],["COMPANY",["About us","How it works","Reviews","Careers"]],["CONTACT",["(502) 536-5571","hello@teagueinc.com","Louisville, KY","Mon–Sat 7am–7pm"]]].map(([h,items])=>(
           <div key={h}><div style={{ fontSize:11, fontWeight:700, color:C.primary, letterSpacing:"1px", marginBottom:16 }}>{h}</div><div style={{ display:"flex", flexDirection:"column", gap:10 }}>{items.map(i=><a key={i} style={{ fontSize:13, color:C.footerTxt, cursor:"pointer" }}>{i}</a>)}</div></div>
         ))}
       </div>
@@ -109,7 +109,7 @@ export default function ContactPage() {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.primary} strokeWidth="2.2" strokeLinecap="round">
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a2 2 0 011.72-2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 7.91A16 16 0 0016.09 17.9l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
                   </svg>
-                ), label:"Phone", value:"(502) 555-0199", sub:"Call or text anytime" },
+                ), label:"Phone", value:"(502) 536-5571", sub:"Call or text anytime" },
               { icon:(
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.primary} strokeWidth="2.2" strokeLinecap="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>

@@ -216,12 +216,19 @@ export default function LandingPage() {
       }}>
         <Logo/>
         <div style={{ display:"flex", gap:32 }}>
-          {["Services","About","Reviews","Contact"].map(l=>(
-            <a key={l} style={{ fontSize:14, color:"#94A3A0", fontWeight:500, cursor:"pointer", textDecoration:"none" }}>{l}</a>
+
+          {[  ["Services", "/services"],
+              ["About",    "/about"],
+              ["Reviews",  "/reviews"],
+              ["Contact",  "/contact"],
+                    
+        
+        ].map(([l,path])=>(
+            <a key={l} onClick={()=>navigate(path)} style={{ fontSize:14, color:"#94A3A0", fontWeight:500, cursor:"pointer", textDecoration:"none" }}>{l}</a>
           ))}
         </div>
         <div style={{ display:"flex", gap:12, alignItems:"center" }}>
-          <span style={{ fontSize:14, color:"#fff", fontWeight:600, cursor:"pointer" }}>(502) 555-0199</span>
+          <span style={{ fontSize:14, color:"#fff", fontWeight:600, cursor:"pointer" }}>(502) 536-5571</span>
           <BtnGreen onClick={()=>navigate("/book")} sx={{ padding:"10px 20px", fontSize:14 }}>Book now</BtnGreen>
         </div>
       </nav>
@@ -270,7 +277,23 @@ export default function LandingPage() {
 
           {/* Right */}
           <div style={{ position:"relative", display:"flex", justifyContent:"center" }}>
-            <House/>
+
+            <img
+               src="/src/images/home-Hero.jpg"
+               alt="crew at work"
+               style={{
+                   width:"100%",
+                   maxWidth:520,
+                   height:420,
+                   objectFit:"cover",
+                   borderRadius:"16px 16px 0 0",
+                   display:"block",
+               }}
+            />
+            
+            
+            
+            
 
             {/* Floating: next slot */}
             <div style={{ position:"absolute", bottom:40, left:-20, background:"#fff", borderRadius:12, border:`1px solid ${C.border}`, padding:"14px 18px", width:200 }}>
@@ -289,6 +312,7 @@ export default function LandingPage() {
               <div style={{ color:C.gold, fontSize:12, marginTop:2 }}>★★★★★</div>
               <div style={{ fontSize:10, color:C.greenText, marginTop:3 }}>200+ reviews</div>
             </div>
+            
           </div>
         </div>
       </section>
@@ -432,7 +456,7 @@ export default function LandingPage() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.primary} strokeWidth="2.2" strokeLinecap="round">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a2 2 0 011.72-2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 7.91A16 16 0 0016.09 17.9l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
               </svg>
-              <span style={{ fontSize:15, color:"#fff", fontWeight:600 }}>(502) 555-0199</span>
+              <span style={{ fontSize:15, color:"#fff", fontWeight:600 }}>(502) 536-5571</span>
               <span style={{ fontSize:13, color:C.greenText }}>· Mon–Sat, 7am–7pm</span>
             </div>
           </div>
@@ -452,7 +476,7 @@ export default function LandingPage() {
             {[
               ["SERVICES", ["Cleaning","Lawn & Landscaping","Moving Help","Furniture Assembly","Junk Removal"]],
               ["COMPANY",  ["About us","How it works","Reviews","Careers"]],
-              ["CONTACT",  ["(502) 555-0199","hello@teagueinc.com","Louisville, KY","Mon–Sat 7am–7pm"]],
+              ["CONTACT",  ["(502) 536-5571","hello@teagueinc.com","Louisville, KY","Mon–Sat 7am–7pm"]],
             ].map(([heading, items])=>(
               <div key={heading}>
                 <div style={{ fontSize:11, fontWeight:700, color:C.primary, letterSpacing:"1px", marginBottom:16 }}>{heading}</div>

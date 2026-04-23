@@ -75,7 +75,7 @@ const Nav = ({ navigate }) => (
       ))}
     </div>
     <div style={{ display:"flex", gap:12, alignItems:"center" }}>
-      <span style={{ fontSize:14, color:"#fff", fontWeight:600, cursor:"pointer" }}>(502) 555-0199</span>
+      <span style={{ fontSize:14, color:"#fff", fontWeight:600, cursor:"pointer" }}>(502) 536-5571</span>
       <button onClick={()=>navigate("/book")} style={{ background:C.primary, color:"#fff", border:"none", fontFamily:"inherit", fontWeight:700, cursor:"pointer", borderRadius:6, fontSize:14, padding:"10px 20px" }}>Book now</button>
     </div>
   </nav>
@@ -92,7 +92,7 @@ const Footer = ({ navigate }) => (
         {[
           ["SERVICES",["Cleaning","Lawn & Landscaping","Moving Help","Furniture Assembly","Junk Removal"]],
           ["COMPANY", ["About us","How it works","Reviews","Careers"]],
-          ["CONTACT", ["(502) 555-0199","hello@teagueinc.com","Louisville, KY","Mon–Sat 7am–7pm"]],
+          ["CONTACT", ["(502) 536-5571","hello@teagueinc.com","Louisville, KY","Mon–Sat 7am–7pm"]],
         ].map(([h,items])=>(
           <div key={h}>
             <div style={{ fontSize:11, fontWeight:700, color:C.primary, letterSpacing:"1px", marginBottom:16 }}>{h}</div>

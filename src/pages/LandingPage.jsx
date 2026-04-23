@@ -43,7 +43,7 @@ const REVIEWS = [
   { init:"JT", name:"James T.",  svc:"Moving Help",        hl:false,
     text:"They moved our entire apartment in 3 hours flat. Professional, careful with our furniture, and super friendly. Already booked them again." },
   { init:"MR", name:"Maria R.",  svc:"Lawn & Landscaping", hl:true,
-    text:"Our yard looks incredible. They come every two weeks and it's always perfect — edges clean, grass even, no mess left behind. Worth every penny." },
+    text:"Our yard looks incredible. They come every two weeks and it's always perfect edges clean, grass even, no mess left behind. Worth every penny." },
   { init:"DB", name:"David B.",  svc:"Junk Removal",       hl:false,
     text:"Cleared out a whole garage of old furniture in one trip. Fast, fair price, and they swept up after. Will definitely use again." },
 ];
@@ -251,7 +251,7 @@ export default function LandingPage() {
             </h1>
 
             <p style={{ fontSize:17, color:C.muted, lineHeight:1.7, marginBottom:40, maxWidth:440 }}>
-              Cleaning, landscaping, junk removal, moving, and furniture assembly — done right, on time, guaranteed. Serving Louisville and surrounding areas.
+              Cleaning, landscaping, junk removal, moving, and furniture assembly done right, on time, guaranteed. Serving Louisville and surrounding areas.
             </p>
 
             <div style={{ display:"flex", gap:14, alignItems:"center", marginBottom:44 }}>
@@ -279,7 +279,7 @@ export default function LandingPage() {
           <div style={{ position:"relative", display:"flex", justifyContent:"center" }}>
 
             <img
-               src="/src/images/home-Hero.jpg"
+               src="/images/home-Hero.jpg"
                alt="crew at work"
                style={{
                    width:"100%",
@@ -356,7 +356,7 @@ export default function LandingPage() {
             <Label>WHY CHOOSE US</Label>
             <h2 style={{ fontSize:38, fontWeight:800, color:"#fff", letterSpacing:"-1px", lineHeight:1.1, marginBottom:20 }}>Louisville's crew<br/>that shows up.</h2>
             <p style={{ fontSize:16, color:C.muted, lineHeight:1.75, marginBottom:36 }}>
-              We're not a marketplace. Anthony-Teague Inc is a real local business — same crew, same number, same accountability every single time.
+              We're not a marketplace. Anthony-Teague Inc is a real local business same crew, same number, same accountability every single time.
             </p>
             <BtnGreen onClick={()=>navigate("/book")}>Book a service →</BtnGreen>
           </div>
@@ -445,7 +445,7 @@ export default function LandingPage() {
               Stop putting it off.<br/>Book today.
             </h2>
             <p style={{ fontSize:16, color:C.muted, maxWidth:400, lineHeight:1.65 }}>
-              Same-day slots available. Anthony's crew is ready — just tell us what you need.
+              Same-day slots available. Anthony's crew is ready just tell us what you need.
             </p>
           </div>
           <div style={{ display:"flex", flexDirection:"column", gap:14, alignItems:"flex-start" }}>
@@ -470,7 +470,7 @@ export default function LandingPage() {
             <div>
               <div style={{ marginBottom:14 }}><Logo/></div>
               <p style={{ fontSize:13, color:C.footerTxt, lineHeight:1.8, maxWidth:220 }}>
-                Locally owned home services — cleaning, landscaping, moving, assembly & junk removal.
+                Locally owned home services cleaning, landscaping, moving, assembly & junk removal.
               </p>
             </div>
             {[

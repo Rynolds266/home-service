@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../lib/supabase";
 
 const C = {
   darkBg:"#0A1A0D", deepDark:"#060F08", primary:"#2A9D5C",
@@ -47,7 +48,7 @@ const Footer = ({ navigate }) => (
   <footer style={{ background:C.deepDark, padding:"44px 48px 24px" }}>
     <div style={{ maxWidth:1160, margin:"0 auto" }}>
       <div style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr 1fr", gap:48, marginBottom:36 }}>
-        <div><div style={{ marginBottom:14 }}><Logo/></div><p style={{ fontSize:13, color:C.footerTxt, lineHeight:1.8, maxWidth:220 }}>Locally owned home services — cleaning, landscaping, moving, assembly & junk removal.</p></div>
+        <div><div style={{ marginBottom:14 }}><Logo/></div><p style={{ fontSize:13, color:C.footerTxt, lineHeight:1.8, maxWidth:220 }}>Locally owned home services cleaning, landscaping, moving, assembly & junk removal.</p></div>
         {[["SERVICES",["Cleaning","Lawn & Landscaping","Moving Help","Furniture Assembly","Junk Removal"]],["COMPANY",["About us","How it works","Reviews","Careers"]],["CONTACT",["(502) 536-5571","hello@teagueinc.com","Louisville, KY","Mon–Sat 7am–7pm"]]].map(([h,items])=>(
           <div key={h}><div style={{ fontSize:11, fontWeight:700, color:C.primary, letterSpacing:"1px", marginBottom:16 }}>{h}</div><div style={{ display:"flex", flexDirection:"column", gap:10 }}>{items.map(i=><a key={i} style={{ fontSize:13, color:C.footerTxt, cursor:"pointer" }}>{i}</a>)}</div></div>
         ))}
@@ -74,7 +75,20 @@ export default function ContactPage() {
   const update = (k,v) => setForm(p=>({...p,[k]:v}));
 
   const handleSubmit = async () => {
-    // Wire to Supabase: await supabase.from("contact_requests").insert(form)
+   
+   const {error} = await supabase.from("messages").insert({
+      name:        form.name,
+      email:       form.email,
+      messageText: form.message,
+      topic:       form.service,
+   })
+
+  if (error) {
+    console.error("Message error:", error)
+    alert("Something went wrong. Please try again.")
+    return
+  }
+
     setSent(true);
   };
 
@@ -91,7 +105,7 @@ export default function ContactPage() {
             We'd love to hear from you.
           </h1>
           <p style={{ fontSize:16, color:C.muted, lineHeight:1.75, maxWidth:480 }}>
-            Have a question, need a custom quote, or just want to talk through what you need? Fill out the form or call us directly — we respond fast.
+            Have a question, need a custom quote, or just want to talk through what you need? Fill out the form or call us directly we respond fast.
           </p>
         </div>
       </section>
@@ -144,7 +158,7 @@ export default function ContactPage() {
             {/* Quick book nudge */}
             <div style={{ background:C.lightBg, border:`1.5px solid ${C.border}`, borderRadius:14, padding:24, marginTop:28 }}>
               <div style={{ fontSize:14, fontWeight:700, color:C.text, marginBottom:8 }}>Ready to book directly?</div>
-              <p style={{ fontSize:13, color:C.bodyMuted, lineHeight:1.65, marginBottom:16 }}>Skip the message — book online and we'll confirm within 1 hour.</p>
+              <p style={{ fontSize:13, color:C.bodyMuted, lineHeight:1.65, marginBottom:16 }}>Skip the message book online and we'll confirm within 1 hour.</p>
               <button onClick={()=>navigate("/book")} style={{ background:C.primary, color:"#fff", border:"none", fontFamily:"inherit", fontWeight:700, cursor:"pointer", borderRadius:6, fontSize:14, padding:"12px 22px", display:"inline-flex", alignItems:"center", gap:8 }}>
                 Book a service
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { supabase } from "../lib/supabase";
 
 const SERVICES = [
   { id: "cleaning", icon: "✨", label: "Cleaning", desc: "Standard & deep clean", from: "$35" },
@@ -41,6 +42,44 @@ export default function BookingFlow() {
   const [state, setState] = useState(initialState);
 
   const update = (patch) => setState((prev) => ({ ...prev, ...patch }));
+
+  const confirm = async ()=>{
+  console.log("confirm clicked")
+  console.log("state:", state)
+  
+  const selectedDay = DAYS[state.day]
+  console.log("selectedDay:", selectedDay)
+
+    const {data , error} = await supabase.from('Bookings').insert({
+       service:        state.service,
+        name:           state.name,
+        email:          state.email,
+        telephone:      state.phone,
+        address:        state.address,
+        description:    state.desc,
+        scheduled_date: `${selectedDay.label} ${selectedDay.date}`,
+        scheduled_time: state.slot,
+        property_type:  state.propertyType,
+        urgency:        state.urgency,
+        notes:          state.notes,
+        status:         "pending",
+    })
+
+    console.log("data:", data)
+    console.log("error:", error)
+
+    if (error){
+        console.error("Booking error:", error)
+      alert("Something went wrong. Please try again.")
+    
+      return
+    }
+     
+     update({ step: 6 })
+      
+  }
+
+
   const next = () => update({ step: state.step + 1 });
   const back = () => update({ step: state.step - 1 });
 
@@ -454,7 +493,7 @@ export default function BookingFlow() {
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <button style={btnGhost} onClick={back}>← Edit</button>
         <button style={{ ...btnGreen, background: "#1E7B4B", padding: "14px 36px", fontSize: 16 }}
-          onClick={() => update({ step: 6 })}>
+          onClick={confirm}>
           Confirm booking ✓
         </button>
       </div>
